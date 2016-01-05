@@ -48,12 +48,18 @@ var getXMLFile = function (file) {
 	xhttp.send();
 }
 
+
 var title = "";
 interpretXMLFile = function (xmlDoc) {
-	title = xmlDoc.getElementsByTagName("info")[0].getElementsByTagName("title")[0].textContent;
+	var getEl = xmlDoc.getElementsByTagName;
+	var gameInfo = getEl("info")[0];
+	var gameStyle = getEl("style")[0];
 	
+	title = gameInfo.getElementsByTagName("title")[0].textContent;
 	var titleText = document.createElement("p");titleText.textContent = title;
 	table.appendChild(titleText);
+	
+	table.style.fontFamily = gameStyle.getElementsByTagName
 };
 
 getXMLFile(xmlLink);
